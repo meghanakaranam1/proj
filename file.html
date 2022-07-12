@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.21.1/firebase.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row"> 
+            <div class="col-xs-12 text-left">
+                <form id="formy">
+                    <input id="inp" placeholder="Name"/><br><!--compulsory field as of now-->
+                    <input id="inpu" placeholder="field"><br>
+                    <textarea id="inpu2" style="width:auto;height:300px;"></textarea><br>
+                    <input id="inpu3" placeholder="links"><br>
+                    <input style="padding: 5px;" id="nammer" placeholder="name" list="listo"/><br>
+                    <datalist id="listo">
+                    <option value="engineer">
+                    <option value="medicine"> 
+                    </datalist>
+                </form>
+                <button id="btn" onclick="fut()">click</button> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

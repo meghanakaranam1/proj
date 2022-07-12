@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.21.1/firebase.js"></script>
+    <script src="script2.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      var contactform1 = firebase.database().ref("entries"); // retrieval 
+      contactform1.orderByChild("timey").on("child_added",(data) => {
+    var h = data.val();
+    //console.log(h.x);
+    var order = document.getElementById("iddd");
+    var list = document.createElement("li");
+    var para = document.createElement("p");para.innerHTML = h.x +" "+ h.z;para.setAttribute("style","font-size:1.5rem;max-width:60vw;word-wrap:break-word;cursor:pointer;");para.onclick=function fun(){para2.style.display="block"};
+    var para2 = document.createElement("p");para2.innerHTML = h.a;para2.setAttribute("style"," max-width:60vw;word-wrap:break-word;font-size:2rem;display:none;");
+    var links = document.createElement("a");links.href= `https://twitter.com/${h.b}`;links.innerText="external links";
+    var lines = document.createElement("hr");
+    var emoji = document.createElement("p");emoji.innerHTML=h.d;emoji.setAttribute("style","font-size:4rem;");  
+    var butt = document.createElement("button");butt.innerText="send";butt.onclick=function(){var x = "http://127.0.0.1:5502/hey2.html";var y = x+"#";var z =para2.innerHTML;var n = y+z;navigator.clipboard.writeText(n);};
+    list.appendChild(para);
+    list.appendChild(para2);
+    list.appendChild(links);
+    list.appendChild(butt);
+    list.appendChild(emoji);
+    list.appendChild(lines);
+    order.appendChild(list);
+    });
+    function funny(){
+      var x = document.getElementById("search").value;window.find(x);
+    }
+    window.onload= function(){var x = window.location.href;var y = x.slice(32);document.getElementById("search").value=y;document.getElementById("butto").click();};
+    </script>
+</head> 
+<body> 
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 text-right"><input id="search" placeholder="find me"/></div>
+        <div class="col-xs-6 text-left"><button id="butto" onclick="funny()">click</button></div>
+      </div>
+        <div class="row" style="position: absolute;left:50%;transform:translate(-50%)">
+          <div class="col-xs-12"><ol id="iddd"></ol></div>
+        </div>
+    </div>
+</body>
+</html> 
